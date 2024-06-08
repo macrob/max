@@ -1,0 +1,4 @@
+SERVER_PORT = 8081
+SERVER_DEBUG = True
+
+PAGE_RELOAD_INTERVAL = 5 # in seconds
