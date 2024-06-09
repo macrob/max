@@ -16,7 +16,11 @@ def request_username() -> str:
     return input_pw(constants.USERNAME_REQUEST).strip()
 
 
-def print_question(question: str, answer: str, question_type: str) -> bool:
+def print_question(question: str, answer: str | int) -> bool:
+    question_type = TEXT
+    
+    if isinstance(answer, int):
+        question_type = NUMBER
 
     user_answer = input_pw(question, type=question_type)
 
@@ -24,15 +28,17 @@ def print_question(question: str, answer: str, question_type: str) -> bool:
         user_answer = user_answer.lower()
         answer = answer.lower()
 
-    if user_answer == answer:
-        return True
-    else:
-        return False
+    return user_answer == answer;
 
+
+def print_excellent_score() -> None:
+    img = open(config.IMAGE_EXCELLENT_RESULT, 'rb').read()
+    put_image(img, width=config.IMAGE_EXCELLENT_RESULT_WIDTH)
 
 def print_final_score(username: str, score: int) -> None:
     put_html(constants.MSG_FINAL_SCORE.format(username=username, score=score))
-
+    if score == 5:
+        print_excellent_score()
 
 def print_page_reloader():
     timeout = str(config.PAGE_RELOAD_INTERVAL * 1000)
@@ -47,31 +53,31 @@ def main():
 
     username = request_username()
     answer = print_question(
-        constants.QUESTION_1, constants.QUESTION_1_ANSWER, constants.QUESTION_1_TYPE
+        constants.QUESTION_1, constants.QUESTION_1_ANSWER
     )
     if answer:
         total_score += 1
 
     answer = print_question(
-        constants.QUESTION_2, constants.QUESTION_2_ANSWER, constants.QUESTION_2_TYPE
+        constants.QUESTION_2, constants.QUESTION_2_ANSWER
     )
     if answer:
         total_score += 1
 
     answer = print_question(
-        constants.QUESTION_3, constants.QUESTION_3_ANSWER, constants.QUESTION_3_TYPE
+        constants.QUESTION_3, constants.QUESTION_3_ANSWER
     )
     if answer:
         total_score += 1
 
     answer = print_question(
-        constants.QUESTION_4, constants.QUESTION_4_ANSWER, constants.QUESTION_4_TYPE
+        constants.QUESTION_4, constants.QUESTION_4_ANSWER
     )
     if answer:
         total_score += 1
 
     answer = print_question(
-        constants.QUESTION_5, constants.QUESTION_5_ANSWER, constants.QUESTION_5_TYPE
+        constants.QUESTION_5, constants.QUESTION_5_ANSWER
     )
     if answer:
         total_score += 1
