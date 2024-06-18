@@ -7,8 +7,8 @@ MOVIE_CATEGORIES = ['Драма', 'Мультфілм', 'Екшн']
 REQUEST_MOVIE_REVIEW = 'Залиште відгук'
 
 REQUEST_MOVIE_RATING = 'Оцініть фільм від 1-го до 10'
-REQUEST_USER_EMOCION = 'Яке враженя залишились після перегляду ?'
-MOVIE_EMOCION = ['Веселий', 'Сумний']
+REQUEST_USER_EMOTION = 'Яке враженя залишились після перегляду ?'
+MOVIE_EMOTION = ['Веселий', 'Сумний']
 
 REQUEST_RECOMMENDATION = 'Рекомендуешь фильм друзям ?'
 MOVIE_RECOMMENDATION = ['Так', 'Ні']
