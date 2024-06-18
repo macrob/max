@@ -34,7 +34,10 @@ students = {
         'Середній бал': 80,
     },
 }
+
 # ваш код нижче !!!!!!!! вище нічого не змінюємо
+
+
 from pywebio import start_server
 from pywebio.output import put_text, put_table, put_html
 from pywebio.input import (
@@ -45,24 +48,25 @@ from pywebio.input import (
 
 import config
 import constants
+from utils import reload_page
 
+def translate_field(key):
+    return constants.FORM_KEYS_TRANSLATE[key]
 
-def get_form_key(key):
-    return constants.FORM_KEYS[key]
-
-
-def add_student(input_student):
-    fname = input_student.pop('fname')
-    lname = student.pop('lname')
-    key = fname + ' ' + lname
+def get_student_key(input_student: dict) -> str:
+    fname = input_student.get('fname')
+    lname = input_student.get('lname')
+    return fname +'' + lname
     
+def add_student(input_student):
     student = {
-        get_form_key('email'): input_student.pop('email'),
-        get_form_key('age'): input_student.pop('age'),
-        get_form_key('phone'): input_student.pop('phone'),
-        get_form_key('avg_mark'): input_student.pop('avg_mark'),
+        translate_field('email'): input_student.get('email'),
+        translate_field('age'): input_student.get('age'),
+        translate_field('phone'): input_student.get('phone'),
+        translate_field('avg_mark'): input_student.get('avg_mark'),
     }
     
+    key = get_student_key(input_student)
     students[key] = student
     pass
 
@@ -90,8 +94,8 @@ def request_student_data():
 def get_good_students(students: dict, avg_mark: int) -> list:
     result = []
     for name, studentData in students.items():
-        if studentData[get_form_key('avg_mark')] >= avg_mark:
-            result.append([name, studentData[get_form_key('avg_mark')]])
+        if studentData[translate_field('avg_mark')] >= avg_mark:
+            result.append([name, studentData[translate_field('avg_mark')]])
     return result
 
 
@@ -105,12 +109,12 @@ def show_good_students(good_students: list):
 def get_avg_group_mark(students: dict) -> float:
     result = 0
     for student in students.values():
-        result += student[get_form_key('avg_mark')]
+        result += student[translate_field('avg_mark')]
     return result / len(students)
 
 
 def show_avg_group_mark(avg_group_mark: float):
-    put_html(constants.MSG_GROUP_AVG_MARK.format(avg_group_mark=avg_group_mark))
+    put_html(constants.MSG_GROUP_AVG_MARK.format(avg_group_mark=round(avg_group_mark, 2)))
 
 
 def get_students(students: dict) -> list:
@@ -118,9 +122,9 @@ def get_students(students: dict) -> list:
     for name, studentData in students.items():
         result.append([
             name, 
-            studentData.get(get_form_key('avg_mark')),
-            studentData.get(get_form_key('phone')) or constants.MSG_PHONE_NOT_FOUND,
-            studentData.get(get_form_key('email')) or constants.MSG_EMAIL_NOT_FOUND,
+            studentData.get(translate_field('avg_mark')),
+            studentData.get(translate_field('phone')) or constants.MSG_PHONE_NOT_FOUND,
+            studentData.get(translate_field('email')) or constants.MSG_EMAIL_NOT_FOUND,
         ])
 
     return result
@@ -148,6 +152,7 @@ def main():
     students_list = get_students(students)
     show_students(students_list)
 
+    reload_page(config.PAGE_RELOAD_INTERVAL_MS)
 
 if __name__ == '__main__':
     start_server(main, port=config.SERVER_PORT, debug=config.SERVER_DEBUG)
