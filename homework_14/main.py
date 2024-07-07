@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 
 import utils.email_sender as email_sender
+import config
 
 def main():
   # recipients = ['epishkin.serg@gmail.com']
@@ -20,7 +21,10 @@ def main():
   email_sender.send(
     recipients,
     body=email_body,
-    subject='Hello, world!'
+    subject='Hello, world!',
+    attachments=[
+      config.PTH_PROJECT + '/test.jpg'
+    ]
   )
 
   print(email_body)
