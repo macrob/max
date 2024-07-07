@@ -9,3 +9,10 @@ https://ru.wikipedia.org/wiki/%D0%94%D0%B7%D0%B5%D0%BD_%D0%9F%D0%B0%D0%B9%D1%82%
 
 pip3 freeze > requirements.txt
 pip3 install -r requirements.txt
+
+
+
+pip3 install python-dotenv
+from dotenv import load_dotenv
+from typing import Final
+pip3 install jinja2
