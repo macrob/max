@@ -7,7 +7,7 @@ MSG_REQUEST_MARK = "Please enter your avg mark:"
 
 MSG_FORM_TITLE = "Student Form"
 
-FORM_KEYS = {
+FORM_KEYS_TRANSLATE = {
     'email': 'Пошта',
     'age': 'Вік',
     'phone': 'Номер телефону',
