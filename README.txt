@@ -16,3 +16,7 @@ pip3 install python-dotenv
 from dotenv import load_dotenv
 from typing import Final
 pip3 install jinja2
+
+
+{3, 2 ,4} - set
+(2,4,5) - tuple
