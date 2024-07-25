@@ -29,6 +29,7 @@ class Car:
     
     
 car1 = Car('BMW', 'M5', 20)
+cae3 = Car(manufacturer='Tesla', model='Model S', fuel_efficiency=0, year=2021)
 car2 = Car('Tesla', 'Model S', 0)
 
 print(car1)
