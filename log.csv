@@ -1,0 +1,9 @@
+add_two_numbers; (); {'a': 5, 'b': 2}; 7
+add_two_numbers; (); {'a': 5, 'b': 2}; 7
+add_three_numbers; (); {'a': 5, 'b': 2.5, 'c': 4}; 11.5
+add_two_numbers; (); {'a': 5, 'b': 2}; 7
+add_three_numbers; (5, 2.5, 4); {}; 11.5
+add_two_numbers; (); {'a': 5, 'b': 2}; 7
+add_three_numbers; (5, 2.5, 4); {}; 11.5
+add_two_numbers; (); {'a': 5, 'b': 2}; 7
+add_three_numbers; (5, 2.5, 4); {}; 11.5
