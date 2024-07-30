@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример HTML письма</title>
+    <style>
+        /* Общие стили */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        table {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 20px;
+            text-align: left;
+            vertical-align: top;
+        }
+        h2 {
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: normal;
+            font-size: 24px;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+        /* Стили для верхней части таблицы */
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        /* Стили для нижней части таблицы */
+        .footer {
+            background-color: #f0f0f0;
+            color: #888;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td class="header" colspan="2">
+                <h2>Заголовок письма</h2>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>Здравствуйте,</p>
+                <p>Это пример HTML письма с использованием стилей CSS для улучшения внешнего вида.</p>
+                <p>С уважением,<br>Ваше имя</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="footer" colspan="2">
+                <p>&copy; 2024. Все права защищены.</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
