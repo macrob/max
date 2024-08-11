@@ -20,3 +20,7 @@ pip3 install jinja2
 
 {3, 2 ,4} - set
 (2,4,5) - tuple
+
+
+
+print(type(say_hello))
