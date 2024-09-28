@@ -22,8 +22,16 @@ def compare_lists(list_1, list_2):
 
     return even_count > odd_count
 
-print(compare_lists(list_1, list_2)) ## True
 
+def compare_lists_2(list_1, list_2):
+    even_list_1 = [el for el in list_1 if el % 2 == 0]
+    odd_list_2 = [el for el in list_2 if el % 2 != 0]
+
+    return len(even_list_1) > len(odd_list_2)
+
+
+print(compare_lists(list_1, list_2)) ## True
+print(compare_lists_2(list_1, list_2)) ## True
 
 #### Створити функцію, яка приймає один список та повертає найбільший парний елемент. 
 # Наприклад: [1, 10, 4, 13, 22, 10, 0 , 105, 12, 11, 105] для цього списку повинно повернути 22
@@ -42,8 +50,17 @@ print(max_evn) ## 124
 # Наприклад список [1, 10, 4, 13, 22, 10, 0 , 105, 12, 11, 105]. max_1 = 105, max_2 = 22. max_3 == 13 )
 
 def max_3_elements(list_1):
+    list_1 = list(set(list_1))
     list_1.sort(reverse=True)
     return list_1[:3]
 
 max_3 = max_3_elements([1, 10, 4, 13, 22, 10, 0 , 105, 12, 11, 105])
 print(max_3) ## [105, 22, 13]
+
+
+def get_largest_even_number(lst: list) -> int:
+    max_even_number = [el for el in lst if el % 2 == 0]
+    
+    return max(max_even_number)
+
+print(get_largest_even_number([1, 10, 4, 13, 22, 10, 0 , 105, 12, 124, 11, 105])) ## 124
