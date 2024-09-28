@@ -10,10 +10,12 @@ def compare_lists(list_1, list_2):
     even_count = 0
     odd_count = 0
 
+    # calculate even count in list_1
     for i in list_1:
         if i % 2 == 0:
             even_count += 1
 
+    # calculate odd count in list_2
     for i in list_2:
         if i % 2 != 0:
             odd_count += 1
